@@ -1,39 +1,14 @@
 
-# fCC Timestamp Microservice API Project
+# fCC File Metadata Microservice API Project
 
-#### API query URL: 
-
-```
-https://fcc-timestamp-microservice-nmc.glitch.me/api/timestamp/:date_string?
-```
-
-> Where: 
-> >
-> > ```:date_string?```
-> > 
-> is the query string.
-
-#### API output format:
-
-```
-{ "unix": 1450137600, "natural": "December 15, 2015" }
-```
-
-#### API output:
-* (ISO-8601) [2015-12-15](https://fcc-timestamp-microservice-nmc.glitch.me/api/timestamp/2015-12-15)
-
-* (UNIX Epoch) [1450137600000](https://fcc-timestamp-microservice-nmc.glitch.me/api/timestamp/1450137600000)
-
-* [Current UTC](https://fcc-timestamp-microservice-nmc.glitch.me/api/timestamp)
-
-### User stories required by project:
-
-1. The API endpoint is `GET [project_url]/api/timestamp/:date_string?`
-2. A date string is valid if can be successfully parsed by `new Date(date_string)` (JS) . Note that the unix timestamp needs to be an **integer** (not a string) specifying **milliseconds**. In our test we will use date strings compliant with ISO-8601 (e.g. `"2016-11-20"`) because this will ensure an UTC timestamp.
-3. If the date string is **empty** it should be equivalent to trigger `new Date()`, i.e. the service uses the current timestamp.
-4. If the date string is **valid** the api returns a JSON having the structure 
-`{"unix": <date.getTime()>, "utc" : <date.toUTCString()> }`
-e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
-5. If the date string is **invalid** the api returns a JSON having the structure `{"unix": null, "utc" : "Invalid Date" }`. It is what you get from the date manipulation functions used above.
+### Usage :
+* Go [here](https://fcc-file-metadata-microservice-nmc.glitch.me/) and upload a file using the provided form.
 
 
+### User stories:
+1. I can submit a form that includes a file upload.
+2. [trimmed]
+3. When I submit something, I will receive the file name and size in bytes within the JSON response
+
+### Hint:
+* To handle the file uploading you should use the [multer](https://www.npmjs.com/package/multer) npm package.
